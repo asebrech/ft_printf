@@ -6,13 +6,14 @@
 #    By: asebrech <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/23 16:13:10 by asebrech          #+#    #+#              #
-#    Updated: 2021/04/23 18:22:44 by asebrech         ###   ########.fr        #
+#    Updated: 2021/04/28 13:56:09 by asebrech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIB = libft.a
+DLIB = libft
+PLIB = libft/libft.a
 NAME = libftprintf.a
 SRC = ft_printf.c
 OBJ = $(SRC:.c=.o)
@@ -20,22 +21,23 @@ RM = rm -rf
 
 all : $(NAME)
 
-$(NAME) : $(LIB) $(OBJ)
+$(NAME) : $(OBJ)
+	make -C $(DLIB) bonus
+	cp $(PLIB) $(NAME)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-$(LIB) :
-	make -C libft
-
 clean :
-	make -C libft clean
+	make -C $(DLIB) clean
 	$(RM) $(OBJ)
 
 fclean : clean
-	make -C libft fclean
+	$(RM) $(PLIB)
 	$(RM) $(NAME)
 
 re : fclean all
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+
+.PHONY : all clean fclean re

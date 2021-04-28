@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-int main(void)
+int	main(void)
 {
 	ft_printf("this is the way", 1);
 }

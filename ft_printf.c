@@ -6,11 +6,10 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:05:36 by asebrech          #+#    #+#             */
-/*   Updated: 2021/04/23 18:11:20 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:33:41 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "libftprintf.h"
 
 void	ft_printf(char *str, int fd)
