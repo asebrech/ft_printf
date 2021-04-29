@@ -6,7 +6,7 @@
 #    By: asebrech <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/23 16:13:10 by asebrech          #+#    #+#              #
-#    Updated: 2021/04/28 13:56:09 by asebrech         ###   ########.fr        #
+#    Updated: 2021/04/29 18:18:19 by asebrech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 DLIB = libft
 PLIB = libft/libft.a
 NAME = libftprintf.a
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printf_utiles.c
 OBJ = $(SRC:.c=.o)
 RM = rm -rf
 

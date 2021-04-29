@@ -2,5 +2,5 @@
 
 int	main(void)
 {
-	ft_printf("this is the way", 1);
+	ft_printf("this %d way", 117);
 }
