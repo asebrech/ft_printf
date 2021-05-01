@@ -6,16 +6,20 @@
 #    By: asebrech <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/23 16:13:10 by asebrech          #+#    #+#              #
-#    Updated: 2021/04/29 18:18:19 by asebrech         ###   ########.fr        #
+#    Updated: 2021/05/01 12:25:50 by asebrech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+HEADER = include
 DLIB = libft
 PLIB = libft/libft.a
 NAME = libftprintf.a
-SRC = ft_printf.c ft_printf_utiles.c
+SRC = srcs/ft_printf.c \
+	srcs/ft_printf_utiles.c \
+	srcs/ft_printf_convert.c \
+	srcs/ft_printf_flags.c
 OBJ = $(SRC:.c=.o)
 RM = rm -rf
 
@@ -37,7 +41,10 @@ fclean : clean
 
 re : fclean all
 
+test : $(NAME)
+	$(CC) $(CFLAGS) -I$(HEADER) main.c -L. -lftprintf && ./a.out
+
 .c.o :
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $(<:.c=.o)
 
 .PHONY : all clean fclean re
