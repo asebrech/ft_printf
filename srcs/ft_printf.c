@@ -6,15 +6,17 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:53 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/01 12:28:02 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/04 15:50:30 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 void	ft_printf(const char *format, ...)
 {
-	va_list	args;
+	va_list		args;
+	t_struct	data;
 
 	va_start(args, format);
 	while (*format)
@@ -22,6 +24,8 @@ void	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			ft_init_struct(&data);
+			format = ft_parsing(format, args, &data);
 			ft_convert(format, args);
 		}
 		else

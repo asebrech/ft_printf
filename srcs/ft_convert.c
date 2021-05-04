@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_convert.c                                :+:      :+:    :+:   */
+/*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/01 12:23:08 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/01 16:31:43 by asebrech         ###   ########.fr       */
+/*   Created: 2021/05/04 14:47:42 by asebrech          #+#    #+#             */
+/*   Updated: 2021/05/04 14:47:44 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
-
-void	ft_convert_p(va_list args)
-{
-	void	*ptr;
-
-	ptr = va_arg(args, void *);
-	if (ptr == NULL)
-		ft_putstr_fd("(nil)", 1);
-	else
-	{
-		ft_putstr_fd("0x", 1);
-		ft_putnbr_base_fd((long int)ptr, "0123456789abcdef", 1);
-	}
-}
 
 void	ft_convert(const char *format, va_list args)
 {
+	void	*ptr;
+
 	if (*format == '%')
 		ft_putchar_fd('%', 1);
 	else if (*format == 'd' || *format == 'i')
@@ -44,5 +31,9 @@ void	ft_convert(const char *format, va_list args)
 	else if (*format == 'X')
 		ft_putnbr_base_fd(va_arg(args, unsigned int), "0123456789ABCDEF", 1);
 	else if (*format == 'p')
-		ft_convert_p(args);
+	{
+		ptr = va_arg(args, void *);
+		ft_putstr_fd("0x", 1);
+		ft_putnbr_base_fd((unsigned long int)ptr, "0123456789abcdef", 1);
+	}
 }
