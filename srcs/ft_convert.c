@@ -6,13 +6,13 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:47:42 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 14:47:44 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/04 21:13:20 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_convert(const char *format, va_list args)
+static void	ft_print(const char *format, va_list args)
 {
 	void	*ptr;
 
@@ -36,4 +36,10 @@ void	ft_convert(const char *format, va_list args)
 		ft_putstr_fd("0x", 1);
 		ft_putnbr_base_fd((unsigned long int)ptr, "0123456789abcdef", 1);
 	}
+}
+
+void	ft_convert(const char *format, va_list args, t_struct *data)
+{
+	if (data->flag == 0 && data->width == 0 && data->precision == -1)
+		ft_print(format, args);
 }

@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:45:09 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 16:48:28 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/04 21:04:14 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,41 +29,36 @@ static const char	*ft_preci(const char *format, va_list args, t_struct *data)
 	return (format);
 }
 
-static const char *ft_flag(const char *format, t_struct *data)
+static const char	*ft_flag(const char *format, t_struct *data)
 {
-	if (*format == '0' && (*format + 1) != '-')
-		data->flag = *format;
-	else if (*format == '0' && (*format + 1) == '-')
+	if (*format == '0')
 	{
-		format++;
 		data->flag = *format;
+		format++;
+		if (*format == '-')
+		{
+			data->flag = *format;
+			format++;
+		}
 	}
-	else if (*format == '-' && (*format + 1) != '0')
-		data->flag = *format;
-	else if (*format == '-' && (*format + 1) == '0')
+	else if (*format == '-')
 	{
 		data->flag = *format;
 		format++;
+		if (*format == '0')
+			format++;
 	}
 	return (format);
 }
 
 #include <stdio.h>
-void	printest(t_struct *data)
-{
-	printf("%c\n", data->flag);
-	printf("%d\n", data->width);
-	printf("%d\n", data->precision);
-	printf("%c\n", data->type);
-	
-}
+
 
 const char	*ft_parsing(const char *format, va_list args, t_struct *data)
 {
 	if (*format == '-' || *format == '0')
 	{
 		format = ft_flag(format, data);
-		format++;
 	}
 	if (*format >= '0' && *format <= '9')
 	{
@@ -82,6 +77,11 @@ const char	*ft_parsing(const char *format, va_list args, t_struct *data)
 		|| *format == 'i' || *format == 'u' || *format == 'x'
 		|| *format == 'X' || *format == '%')
 		data->type = *format;
-		printest(data);
+
+	printf(" f %c\n", data->flag);
+	printf(" f %d\n", data->width);
+	printf(" f %d\n", data->precision);
+	printf(" f %c\n", data->type);
+
 	return (format);
 }

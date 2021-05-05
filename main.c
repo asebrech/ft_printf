@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:35 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 16:54:54 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/04 21:13:41 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(void)
 	//printf("OR printf :: c : %c / s : %s / d: %d i: %i / u : %u / x : %x / X : %X / %% : %% / p : %p\n\n", c, s, d, i, u, x, X, p);
 	
 	
-	//printf("test : %022d", d);
+	ft_printf("test :\n %0d\n", d);
 
-	ft_printf("%0-*.87d\n", d, i);
 }
