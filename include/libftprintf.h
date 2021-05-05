@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 18:07:35 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 20:44:06 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/05 16:10:16 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ typedef struct s_struct
 	char	type;
 }				t_struct;
 
-void		ft_printf(const char *format, ...);
-void		ft_convert(const char *format, va_list args, t_struct *data);
-void		ft_putnbr_base_fd(unsigned long int nb, char *base, int fd);
+int			ft_printf(const char *format, ...);
+int			ft_convert(const char *format, va_list args, t_struct *data);
+int			ft_convert_mod(t_struct *data);
+void		ft_putnbr_base_fd(unsigned long nb, char *base, int fd, int *ret);
 void		ft_init_struct(t_struct *data);
 const char	*ft_parsing(const char *format, va_list args, t_struct *data);
 

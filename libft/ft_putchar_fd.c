@@ -6,13 +6,14 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:30:22 by asebrech          #+#    #+#             */
-/*   Updated: 2021/04/05 14:32:07 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:10:15 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:07:06 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 15:53:06 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/05 16:10:03 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,19 @@ void	ft_init_struct(t_struct *data)
 	data->type = 0;
 }
 
-void	ft_putnbr_base_fd(unsigned long int nb, char *base, int fd)
+void	ft_putnbr_base_fd(unsigned long nb, char *base, int fd, int *ret)
 {
 	unsigned int	len_base;
 
+	*ret = *ret + 1;
 	len_base = ft_strlen(base);
 	if (nb >= len_base)
 	{
-		ft_putnbr_base_fd(nb / len_base, base, fd);
+		ft_putnbr_base_fd(nb / len_base, base, fd, ret);
 		ft_putchar_fd(base[nb % len_base], fd);
 	}
 	else
+	{
 		ft_putchar_fd(base[nb], fd);
+	}
 }

@@ -6,18 +6,20 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:53 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 21:14:21 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/05 14:42:23 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-void	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
+	int			ret;
 	va_list		args;
 	t_struct	data;
 
+	ret = 0;
 	va_start(args, format);
 	while (*format)
 	{
@@ -26,11 +28,12 @@ void	ft_printf(const char *format, ...)
 			format++;
 			ft_init_struct(&data);
 			format = ft_parsing(format, args, &data);
-			ft_convert(format, args);
+			ret += ft_convert(format, args, &data);
 		}
 		else
-			ft_putchar_fd(*format, 1);
+			ret += ft_putchar_fd(*format, 1);
 		format++;
 	}
 	va_end(args);
+	return (ret);
 }

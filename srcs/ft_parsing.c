@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:45:09 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/04 21:04:14 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/05 11:54:28 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,35 +31,20 @@ static const char	*ft_preci(const char *format, va_list args, t_struct *data)
 
 static const char	*ft_flag(const char *format, t_struct *data)
 {
-	if (*format == '0')
+	data->flag = '0';
+	while (*format == '-' || *format == '0')
 	{
-		data->flag = *format;
-		format++;
 		if (*format == '-')
-		{
-			data->flag = *format;
-			format++;
-		}
-	}
-	else if (*format == '-')
-	{
-		data->flag = *format;
+			data->flag = '-';
 		format++;
-		if (*format == '0')
-			format++;
 	}
 	return (format);
 }
 
-#include <stdio.h>
-
-
 const char	*ft_parsing(const char *format, va_list args, t_struct *data)
 {
 	if (*format == '-' || *format == '0')
-	{
 		format = ft_flag(format, data);
-	}
 	if (*format >= '0' && *format <= '9')
 	{
 		data->width = ft_atoi(format);
@@ -77,11 +62,5 @@ const char	*ft_parsing(const char *format, va_list args, t_struct *data)
 		|| *format == 'i' || *format == 'u' || *format == 'x'
 		|| *format == 'X' || *format == '%')
 		data->type = *format;
-
-	printf(" f %c\n", data->flag);
-	printf(" f %d\n", data->width);
-	printf(" f %d\n", data->precision);
-	printf(" f %c\n", data->type);
-
 	return (format);
 }
