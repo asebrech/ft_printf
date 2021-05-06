@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 10:26:47 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 16:04:22 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:03:34 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_convert_mod(t_struct *data)
 
 	str = NULL;
 	ret = 0;
-	if (data->width >= 1)
+	if (data->width > 0)
 	{
-		str = ft_calloc(data->width, sizeof(char) + 1);
+		str = ft_calloc(data->width + 1, sizeof(char));
 		if (!str)
 			return (0);
 		if (data->flag)
@@ -45,8 +45,10 @@ int	ft_convert_mod(t_struct *data)
 			ft_memset(&str[0], ' ', data->width - 1);
 			ft_memset(&str[data->width - 1], '%', 1);
 		}	
+		ret = ft_putstr_fd(str, 1);
 	}
-	ret = ft_putstr_fd(str, 1);
+	else
+		ret = ft_putchar_fd('%', 1);
 	free(str);
 	return (ret);
 }

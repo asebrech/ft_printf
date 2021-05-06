@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:47:42 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 15:07:55 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/06 11:32:11 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ int	ft_convert(const char *format, va_list args, t_struct *data)
 	int	ret;
 
 	ret = 0;
-	if (!data->flag && !data->width && data->precision == -1)
+	if (data->flag == 0 && data->width == 0 && data->precision == -1)
 		ret = ft_print(format, args);
 	else if (*format == '%')
 		ret = ft_convert_mod(data);
+	else if (*format == 'd' || *format == 'i')
+		ret = ft_convert_d(args, data);
 	return (ret);
 }

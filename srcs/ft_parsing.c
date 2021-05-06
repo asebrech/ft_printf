@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:45:09 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 11:54:28 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:52:36 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static const char	*ft_preci(const char *format, va_list args, t_struct *data)
 {
 	format++;
+	data->point = 1;
 	if (*format >= '0' && *format <= '9')
 	{
 		data->precision = ft_atoi(format);

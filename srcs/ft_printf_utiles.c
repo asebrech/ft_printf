@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:07:06 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 16:10:03 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:51:57 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_init_struct(t_struct *data)
 {
 	data->flag = 0;
 	data->width = 0;
+	data->point = 0;
 	data->precision = -1;
 	data->type = 0;
 }
