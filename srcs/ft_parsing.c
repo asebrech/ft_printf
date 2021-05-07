@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:45:09 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/06 16:52:36 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/07 13:49:19 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static const char	*ft_preci(const char *format, va_list args, t_struct *data)
 		data->precision = va_arg(args, int);
 		format++;
 	}
+	else
+		data->precision = 0;
 	return (format);
 }
 
@@ -42,6 +44,21 @@ static const char	*ft_flag(const char *format, t_struct *data)
 	return (format);
 }
 
+static void	ft_width(va_list args, t_struct *data)
+{
+	int	nb;
+
+	nb = va_arg(args, int);
+	if (nb < 0)
+	{
+		data->flag = '-';
+		nb = -nb;
+		data->width = nb;
+	}
+	else
+		data->width = nb;
+}
+
 const char	*ft_parsing(const char *format, va_list args, t_struct *data)
 {
 	if (*format == '-' || *format == '0')
@@ -54,7 +71,7 @@ const char	*ft_parsing(const char *format, va_list args, t_struct *data)
 	}
 	else if (*format == '*')
 	{
-		data->width = va_arg(args, int);
+		ft_width(args, data);
 		format++;
 	}
 	if (*format == '.')
