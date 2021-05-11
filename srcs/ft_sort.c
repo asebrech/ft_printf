@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert.c                                       :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 14:47:42 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 17:34:18 by asebrech         ###   ########.fr       */
+/*   Created: 2021/05/11 18:35:11 by asebrech          #+#    #+#             */
+/*   Updated: 2021/05/11 18:35:26 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	ft_convert_p(va_list args, t_struct *data)
 	return (ret);
 }
 
-int	ft_convert(const char *format, va_list args, t_struct *data)
+int	ft_sort(const char *format, va_list args, t_struct *data)
 {
 	int		ret;
 
@@ -81,6 +81,8 @@ int	ft_convert(const char *format, va_list args, t_struct *data)
 		ret = ft_convert_nbr(ft_itoa(va_arg(args, unsigned int)), data);
 	else if (*format == 'c')
 		ret = ft_convert_char(va_arg(args, int), data);
+	else if (*format == 's')
+		ret = ft_convert_str(va_arg(args, char *), data);
 	else if (*format == 'x')
 		ret = ft_convert_nbr(ft_itoa_base(va_arg(args, unsigned int),
 					"0123456789abcdef", 0), data);

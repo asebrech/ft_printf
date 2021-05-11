@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:53 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 14:42:23 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 18:36:50 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_printf(const char *format, ...)
 			format++;
 			ft_init_struct(&data);
 			format = ft_parsing(format, args, &data);
-			ret += ft_convert(format, args, &data);
+			ret += ft_sort(format, args, &data);
 		}
 		else
 			ret += ft_putchar_fd(*format, 1);
