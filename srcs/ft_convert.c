@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:47:42 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/07 13:04:15 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 15:02:02 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int	ft_convert(const char *format, va_list args, t_struct *data)
 		ret = ft_convert_mod(data);
 	else if (*format == 'd' || *format == 'i')
 		ret = ft_convert_d(args, data);
+	else if (*format == 'c')
+		ret = ft_convert_c(data, args);
 	return (ret);
 }

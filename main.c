@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:35 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/07 16:42:43 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 15:02:23 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int				test;
 int				test1;
 char			c = 'Z';
 char			*s = "This is the way";
-int				d = -117;
+int				d = -7567;
 int				i = 22;
-unsigned int	u = 4294967295;
+unsigned int	u = 117;
 unsigned int	x = 4294967295;
 unsigned int	X = 4294967295;
 char			*p = "test";
@@ -31,8 +31,8 @@ int	main(void)
 	
 	
 
-	test = ft_printf("FT : %020.15d\n", d);
-	test1 = printf("OR : %020.15d\n", d);
+	test = ft_printf("FT : %22.5d\n", d);
+	test1 = printf("OR : %22.5d\n", d);
 
 	ft_printf("FT : %d\n", test);
 	ft_printf("OR : %d\n", test1);

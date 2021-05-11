@@ -6,7 +6,7 @@
 #    By: asebrech <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/23 16:13:10 by asebrech          #+#    #+#              #
-#    Updated: 2021/05/06 09:29:07 by asebrech         ###   ########.fr        #
+#    Updated: 2021/05/11 14:35:06 by asebrech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRC = srcs/ft_printf.c \
 	srcs/ft_convert.c \
 	srcs/ft_parsing.c \
 	srcs/ft_convert_mod.c \
-	srcs/ft_convert_d.c
+	srcs/ft_convert_d.c \
+	srcs/ft_convert_u.c \
+	srcs/ft_convert_c.c
 OBJ = $(SRC:.c=.o)
 RM = rm -rf
 

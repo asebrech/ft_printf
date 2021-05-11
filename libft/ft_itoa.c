@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:26:48 by asebrech          #+#    #+#             */
-/*   Updated: 2021/04/07 13:44:57 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:50:24 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_len(int nbr)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long int n)
 {
 	char		*res;
 	int			len;

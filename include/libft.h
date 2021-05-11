@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 13:08:53 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 16:08:25 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:50:03 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
-char	*ft_itoa(int n);
+char	*ft_itoa(long int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
