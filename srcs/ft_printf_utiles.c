@@ -6,20 +6,11 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:07:06 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 17:13:54 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 18:47:21 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-void	ft_init_struct(t_struct *data)
-{
-	data->flag = 0;
-	data->width = 0;
-	data->point = 0;
-	data->precision = -1;
-	data->type = 0;
-}
 
 void	ft_putnbr_base_fd(unsigned long nb, char *base, int fd, int *ret)
 {

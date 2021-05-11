@@ -6,12 +6,20 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:53 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 18:36:50 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/11 18:50:02 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
+
+static void	ft_init_struct(t_struct *data)
+{
+	data->flag = 0;
+	data->width = 0;
+	data->point = 0;
+	data->precision = -1;
+	data->type = 0;
+}
 
 int	ft_printf(const char *format, ...)
 {
