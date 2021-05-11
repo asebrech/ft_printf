@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_u.c                                     :+:      :+:    :+:   */
+/*   ft_convert_nbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 14:46:59 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 14:53:39 by asebrech         ###   ########.fr       */
+/*   Created: 2021/05/11 15:46:13 by asebrech          #+#    #+#             */
+/*   Updated: 2021/05/11 15:46:15 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,14 +112,12 @@ static void	d_flag(t_struct *data, char *str, char *nbr)
 		d_noflag(data, str, nbr);
 }
 
-int	ft_convert_u(va_list args, t_struct *data)
+int	ft_convert_nbr(char *nbr, t_struct *data)
 {
 	int		ret;
 	int		len_nbr;
 	char	*str;
-	char	*nbr;
 
-	nbr = ft_itoa(va_arg(args, unsigned int));
 	str = NULL;
 	len_nbr = ft_strlen(nbr);
 	ret = 0;
