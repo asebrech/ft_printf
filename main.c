@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:35 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 18:48:00 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/12 10:05:11 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int				test;
 int				test1;
 char			c = '%';
 char			*s = "This is the way";
-int				d = -7567;
+int				d = 117;
 int				i = 22;
 unsigned int	u = 7567;
 unsigned int	x = 4294967295;
@@ -30,8 +30,8 @@ int	main(void)
 	printf("OR printf :: c : %c / s : %s / d: %d i: %i / u : %u / x : %x / X : %X / %% : %% / p : %p\n\n", c, s, d, i, u, x, X, p);
 	
 
-	test = ft_printf("FT : %22s\n", s);
-	test1 = printf("OR : %22s\n", s);
+	test = ft_printf("FT : %5.1s\n", s);
+	test1 = printf("OR : %5.1s\n", s);
 
 	ft_printf("FT : %d\n", test);
 	ft_printf("OR : %d\n", test1);
