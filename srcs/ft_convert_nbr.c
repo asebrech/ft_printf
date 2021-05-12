@@ -6,11 +6,11 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:46:13 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 15:46:15 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/12 11:17:04 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static char	*ft_alloc(t_struct *data, char *nbr)
 {
@@ -134,5 +134,6 @@ int	ft_convert_nbr(char *nbr, t_struct *data)
 	else
 		if (!(data->precision == 0 && nbr[0] == '0' && nbr[1] == '\0'))
 			ret = ft_putstr_fd(nbr, 1);
+	free(nbr);
 	return (ret);
 }

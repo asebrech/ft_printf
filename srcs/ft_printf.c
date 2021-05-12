@@ -6,11 +6,11 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:53 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/11 18:50:02 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/12 10:19:11 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static void	ft_init_struct(t_struct *data)
 {
