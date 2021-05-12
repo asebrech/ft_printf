@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:07:06 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/12 14:04:53 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/12 14:26:11 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,32 +64,15 @@ static void	ft_alloc(long int nbr, char *base, int len_nbr, char *str)
 	}
 }
 
-char	*ft_strcat(char *dest, char *src)
-{
-	int i;
-	int len;
-
-	i = 0;
-	len = 0;
-	while (dest[len] != '\0')
-		len++;
-	while (src[i] != '\0')
-	{
-		dest[len] = src[i];
-		i++;
-		len++;
-	}
-	dest[len] = '\0';
-	return (dest);
-}
-
 char	*ft_itoa_base(long int nbr, char *base, int p)
 {
 	char	*str;
 	char	*ptr;
+	char	*tmp;
 	int		len_nbr;
 	int		len_base;
 
+	tmp = NULL;
 	len_base = ft_strlen(base);
 	len_nbr = ft_nbrlen(nbr, len_base);
 	ptr = "0x";
@@ -99,6 +82,10 @@ char	*ft_itoa_base(long int nbr, char *base, int p)
 	str[len_nbr] = '\0';
 	ft_alloc(nbr, base, len_nbr, str);
 	if (p)
-		str = ft_strcat(ptr, str);
+	{
+		tmp = ft_strjoin(ptr, str);
+		free(str);
+		return (tmp);
+	}
 	return (str);
 }
