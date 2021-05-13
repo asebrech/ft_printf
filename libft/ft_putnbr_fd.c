@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:43:52 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/05 14:02:04 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/13 10:15:24 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_putnbr_fd(long int n, int fd, int *ret)
 	{
 		ft_putchar_fd('-', fd);
 		n = -n;
+		*ret = *ret + 1;
 	}
 	if (n > 9)
 	{

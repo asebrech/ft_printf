@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:46:13 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/12 15:15:54 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/13 11:35:57 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void	d_flag_m(t_struct *data, char *str, char *nbr)
 	int	len_str;
 
 	len_nbr = ft_strlen(nbr);
+	if (nbr[0] == '-')
+		len_nbr--;
 	len_str = ft_strlen(str);
 	if (data->precision > len_nbr)
 	{
@@ -55,12 +57,16 @@ static void	d_flag_m(t_struct *data, char *str, char *nbr)
 		else
 		{
 			ft_memset(&str[0], '-', 1);
-			ft_memcpy(&str[data->precision - len_nbr + 2],
-				&nbr[1], len_nbr - 1);
+			ft_memcpy(&str[data->precision - len_nbr + 1],
+				&nbr[1], len_nbr);
 		}
 	}
 	else
+	{
+		if (nbr[0] == '-')
+			len_nbr++;
 		ft_memcpy(&str[0], nbr, len_nbr);
+	}
 }
 
 static void	d_noflag(t_struct *data, char *str, char *nbr)
@@ -93,7 +99,7 @@ static void	d_flag(t_struct *data, char *str, char *nbr)
 
 	len_nbr = ft_strlen(nbr);
 	len_str = ft_strlen(str);
-	if (data->precision == -1)
+	if (data->precision <= -1)
 		data->precision = 0;
 	if (data->flag == '-')
 		d_flag_m(data, str, nbr);
@@ -119,21 +125,27 @@ int	ft_convert_nbr(char *nbr, t_struct *data)
 	char	*str;
 
 	str = NULL;
-	len_nbr = ft_strlen(nbr);
 	ret = 0;
+	len_nbr = ft_strlen(nbr);
+	if (nbr[0] == '-')
+		len_nbr--;
 	if ((data->width > 0 || data->precision > -1)
 		&& (data->width > len_nbr || data->precision > len_nbr))
 	{
-		str = ft_alloc(data, nbr);
 		if (data->precision == 0 && nbr[0] == '0' && nbr[1] == '\0')
 			ft_memset(&nbr[0], ' ', len_nbr);
+		str = ft_alloc(data, nbr);
 		d_flag(data, str, nbr);
 		ret = ft_putstr_fd(str, 1);
 		free(str);
 	}
 	else
+	{
 		if (!(data->precision == 0 && nbr[0] == '0' && nbr[1] == '\0'))
 			ret = ft_putstr_fd(nbr, 1);
+		else if (data->width)
+			ret = ft_putchar_fd(' ', 1);
+	}
 	free(nbr);
 	return (ret);
 }
