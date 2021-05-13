@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:46:13 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/13 14:32:28 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/13 15:03:25 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,15 @@ static void	d_noflag(t_struct *data, char *str, char *nbr)
 	}
 	else if (nbr[0] == '-' && data->precision)
 	{
-		ft_memset(&str[len_str - data->precision - 1], '-', 1);
-		ft_memset(&str[len_str - data->precision], '0',
-			data->precision - 1);
-		ft_memcpy(&str[len_str - len_nbr + 1], &nbr[1], len_nbr - 1);
+		if (data->precision == 1)
+			ft_memcpy(&str[len_str - len_nbr], nbr, len_nbr);
+		else
+		{
+			ft_memset(&str[len_str - data->precision - 1], '-', 1);
+			ft_memset(&str[len_str - data->precision], '0',
+				data->precision - 1);
+			ft_memcpy(&str[len_str - len_nbr + 1], &nbr[1], len_nbr - 1);
+		}
 	}
 	else
 	{
