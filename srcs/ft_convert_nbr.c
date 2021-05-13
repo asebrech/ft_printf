@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:46:13 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/13 11:35:57 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/13 14:32:28 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,21 @@ static void	d_noflag(t_struct *data, char *str, char *nbr)
 		ft_memcpy(&str[len_str - len_nbr + 1], &nbr[1], len_nbr - 1);
 	}
 	else
+	{
+		if (data->flag == '0' && data->point != 2)
+		{
+			ft_memset(&str[0], '0', len_str);
+			if (nbr[0] == '-')
+			{
+				ft_memset(&str[0], '-', 1);
+				ft_memcpy(&str[len_str - len_nbr + 1], &nbr[1], len_nbr - 1);
+			}
+			else
+				ft_memcpy(&str[len_str - len_nbr], nbr, len_nbr);
+		}
+		else
 		ft_memcpy(&str[len_str - len_nbr], nbr, len_nbr);
+	}
 }
 
 static void	d_flag(t_struct *data, char *str, char *nbr)
@@ -99,6 +113,8 @@ static void	d_flag(t_struct *data, char *str, char *nbr)
 
 	len_nbr = ft_strlen(nbr);
 	len_str = ft_strlen(str);
+	if (data->precision == 0)
+		data->point = 2;
 	if (data->precision <= -1)
 		data->precision = 0;
 	if (data->flag == '-')

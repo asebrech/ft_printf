@@ -6,7 +6,7 @@
 /*   By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 00:06:35 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/13 11:31:45 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/13 14:29:16 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(void)
 	//test1 = printf("OR printf :: c : %c / s : %s / d: %d i: %i / u : %u / x : %x / X : %X / %% : %% / p : %p\n", c, s, d, i, u, x, X, p);
 	
 
-	test = ft_printf("FT : %*.*d\n", 2, -2, 8);
-	  test1 = printf("OR : %*.*d\n", 2, -2, 8);
+	test = ft_printf("FT : %*.*d\n", 3, 1, -12);
+	  test1 = printf("OR : %*.*d\n", 3, 1, -12);
 	 //test1 = printf(", %*.*d, \n", 1, 0, d);
 
 	printf("FT : %d\n", test);
