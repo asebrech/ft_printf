@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:35:11 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/12 11:19:55 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:58:49 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ static int	ft_print_p(va_list args)
 	ptr = va_arg(args, void *);
 	ret = ft_putstr_fd("0x", 1);
 	ft_putnbr_base_fd((unsigned long int)ptr, base_h, 1, &ret);
+	return (ret);
+}
+
+static int	s_print(va_list args)
+{
+	int		ret;
+	char	*str;
+
+	ret = 0;
+	str = va_arg(args, char *);
+	if (!str)
+		ret = ft_putstr_fd("(null)", 1);
+	else
+		ret = ft_putstr_fd(str, 1);
 	return (ret);
 }
 
@@ -43,7 +57,7 @@ static int	ft_print(const char *format, va_list args)
 	else if (*format == 'c')
 		ret = ft_putchar_fd(va_arg(args, int), 1);
 	else if (*format == 's')
-		ret = ft_putstr_fd(va_arg(args, char *), 1);
+		ret = s_print(args);
 	else if (*format == 'x')
 		ft_putnbr_base_fd(va_arg(args, unsigned int), base_h, 1, &ret);
 	else if (*format == 'X')
