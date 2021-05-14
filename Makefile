@@ -6,7 +6,7 @@
 #    By: asebrech <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/23 16:13:10 by asebrech          #+#    #+#              #
-#    Updated: 2021/05/13 16:01:49 by asebrech         ###   ########.fr        #
+#    Updated: 2021/05/14 13:14:01 by asebrech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,6 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
-
-test : $(NAME)
-	$(CC) $(CFLAGS) -I$(HEADER) main.c -L. -lftprintf && ./a.out
 
 .c.o :
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $(<:.c=.o)

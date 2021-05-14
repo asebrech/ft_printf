@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:27:18 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/12 13:19:52 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/14 10:37:01 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_convert_str(char *str, t_struct *data)
 		str = "(null)";
 	dst = NULL;
 	ret = 0;
-	if (data->precision == -1 && data->point)
+	if (data->precision == -1 && !data->point)
 		data->precision = 0;
 	if (data->point)
 		str = ft_substr(str, 0, data->precision);

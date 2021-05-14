@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:58:59 by asebrech          #+#    #+#             */
-/*   Updated: 2021/05/13 16:11:19 by asebrech         ###   ########.fr       */
+/*   Updated: 2021/05/14 09:50:36 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 static void	d_flag_m(t_struct *data, char *str, char *nbr)
 {
 	int	len_nbr;
-	int	len_str;
 
 	len_nbr = ft_strlen(nbr);
 	if (nbr[0] == '-')
 		len_nbr--;
-	len_str = ft_strlen(str);
 	if (data->precision > len_nbr)
 	{
 		ft_memset(&str[0], '0', data->precision);
